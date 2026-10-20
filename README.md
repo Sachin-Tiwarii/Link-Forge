@@ -193,7 +193,7 @@ Potential enhancements include:
 Full-Stack Developer | AI & Data Science Undergraduate
 
 - GitHub: [Sachin-Tiwarii](https://github.com/Sachin-Tiwarii)
-- Portfolio: [im-sachin.vercel.app](https://sachin-tech.vercel.app/)
+- Portfolio: [sachin-tech.vercel.app](https://sachin-tech.vercel.app/)
 
 ## License
 
