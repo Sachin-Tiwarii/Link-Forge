@@ -815,3 +815,100 @@ input:focus-visible {
     font-size: 10px;
   }
 }
+
+.feature-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.feature-card-heading .feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.feature-card-heading h3 {
+  margin: 0;
+}
+/* ===== Feature cards: light background variant ===== */
+
+.feature-card {
+  padding: 25px;
+  border: 1px solid rgba(164, 211, 180, 0.4);
+  background: var(--cream);
+  border-radius: 14px;
+  color: var(--deep);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--green);
+  background: var(--cream);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+}
+
+/* Icon and heading stay side by side */
+
+.feature-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.feature-card-heading .feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: auto;
+  height: auto;
+  padding: 0;
+
+  color: var(--deep);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.feature-card-heading h3 {
+  margin: 0;
+  color: var(--deep);
+  font: 700 15px "Manrope", sans-serif;
+}
+
+/* Description */
+
+.feature-card p {
+  margin: 0;
+  color: #435b4d;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* Keep the existing three-column desktop and one-column mobile layout */
+.footer-credit a {
+  color: #c1d1c5;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-credit a:hover {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
