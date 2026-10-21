@@ -1,4 +1,3 @@
-
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@300;400;500&display=swap");
 
 :root {
@@ -54,7 +53,7 @@ input:focus-visible {
   outline-offset: 4px;
 }
 
-/* ===== Main background ===== */
+/* Main background */
 
 .app-shell {
   min-height: 100vh;
@@ -96,33 +95,40 @@ input:focus-visible {
   left: -200px;
 }
 
-/* ===== Brand ===== */
+/* Brand and logo */
 
-.brand {
+.wordmark {
+  align-self: flex-start;
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font: 800 22px "Manrope", sans-serif;
-  letter-spacing: -1px;
-  white-space: nowrap;
+  margin: 0 0 24px -12px;
+  font-family: "Outfit", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  color: var(--cream);
 }
 
-.brand-icon {
-  display: grid;
-  place-items: center;
-  width: 37px;
-  height: 37px;
-  border: 1px solid rgba(164, 211, 180, 0.35);
-  color: var(--green);
-  border-radius: 12px;
-  background: rgba(164, 211, 180, 0.07);
+.wordmark-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
-.brand-accent {
-  color: var(--green);
+.wordmark-text {
+  color: #f3eddf;
+  font-weight: 400;
 }
 
-/* ===== Hero section ===== */
+.wordmark-text span {
+  color: #a4d3b4;
+  font-weight: 300;
+}
+
+/* Hero section */
 
 .hero {
   width: min(1160px, calc(100% - 64px));
@@ -133,23 +139,6 @@ input:focus-visible {
   align-items: stretch;
   position: relative;
   z-index: 1;
-}
-
-.wordmark {
-  align-self: flex-start;
-  display: inline-block;
-  margin: 0 0 24px -12px;
-  font-family: "Outfit", sans-serif;
-  font-size: 30px;
-  font-weight: 400;
-  letter-spacing: -0.5px;
-  line-height: 1.2;
-  color: var(--cream);
-}
-
-.wordmark span {
-  color: var(--green);
-  font-weight: 300;
 }
 
 .hero-content-row {
@@ -205,29 +194,47 @@ input:focus-visible {
   height: 100%;
 }
 
-/* ===== URL shortener card ===== */
+/* URL shortener block */
 
 .shortener-card {
+  position: relative;
+  isolation: isolate;
   width: min(100%, 740px);
-  min-height: 260px;
+  min-height: 220px;
   margin: 24px auto 0;
-  padding: 38px 30px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  border: 1px solid rgba(164, 211, 180, 0.17);
-  border-radius: 20px;
-  background:
-    linear-gradient(
-      145deg,
-      rgba(21, 48, 36, 0.94),
-      rgba(12, 32, 24, 0.96)
-    );
-  box-shadow:
-    0 24px 70px rgba(0, 0, 0, 0.17),
-    inset 0 1px 0 rgba(243, 237, 223, 0.035);
+
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/* Existing dark-green gradient */
+
+.shortener-card::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  z-index: -1;
+  pointer-events: none;
+
+  background: linear-gradient(
+    225deg,
+    rgba(6, 21, 16, 0.98) 0%,
+    rgba(12, 34, 25, 0.96) 50%,
+    rgba(18, 42, 31, 0.94) 100%
+  );
+
+  border: 1px solid rgba(113, 157, 129, 0.2);
+  border-radius: 26px;
 }
 
 .shortener-card form {
@@ -247,6 +254,8 @@ input:focus-visible {
   font-weight: 600;
   text-align: center;
 }
+
+/* URL input */
 
 .input-row {
   display: flex;
@@ -317,7 +326,7 @@ input:focus-visible {
   cursor: wait;
 }
 
-/* Errors stay centered below the input */
+/* Error message */
 
 .error-message {
   width: 100%;
@@ -397,7 +406,7 @@ input:focus-visible {
   letter-spacing: 0.7px;
 }
 
-/* Supporting text at the bottom of the card */
+/* Supporting text */
 
 .card-footer {
   width: 100%;
@@ -421,11 +430,11 @@ input:focus-visible {
 }
 
 .card-footer svg {
-  color: var(--orange);
+  color: var(--cream);
   flex-shrink: 0;
 }
 
-/* ===== Features section ===== */
+/* Features section */
 
 .features {
   position: relative;
@@ -472,47 +481,63 @@ input:focus-visible {
   gap: 17px;
 }
 
+/* Off-white feature cards */
+
 .feature-card {
   padding: 25px;
-  border: 1px solid var(--line);
-  background: rgba(20, 44, 33, 0.52);
+  border: 1px solid rgba(164, 211, 180, 0.4);
+  background: var(--cream);
   border-radius: 14px;
+  color: var(--deep);
   transition:
     transform 0.25s ease,
     border-color 0.25s ease,
-    background 0.25s ease;
+    box-shadow 0.25s ease;
 }
 
 .feature-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(164, 211, 180, 0.35);
-  background: rgba(24, 52, 39, 0.72);
+  border-color: var(--green);
+  background: var(--cream);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
 }
 
-.feature-icon {
-  display: grid;
-  place-items: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  color: var(--green);
-  background: rgba(164, 211, 180, 0.09);
-  border: 1px solid rgba(164, 211, 180, 0.15);
+.feature-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
 }
 
-.feature-card h3 {
-  margin: 20px 0 9px;
-  font: 600 15px "Manrope", sans-serif;
+.feature-card-heading .feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: auto;
+  height: auto;
+  padding: 0;
+  color: var(--deep);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.feature-card-heading h3 {
+  margin: 0;
+  color: var(--deep);
+  font: 700 15px "Manrope", sans-serif;
 }
 
 .feature-card p {
   margin: 0;
-  color: var(--muted);
+  color: #435b4d;
   font-size: 12px;
   line-height: 1.8;
 }
 
-/* ===== Professional footer ===== */
+/* Footer */
 
 .footer {
   position: relative;
@@ -529,16 +554,21 @@ input:focus-visible {
 
 .footer-brand {
   justify-self: start;
-  color: var(--cream);
+  color: #F3EDDF;
   font-family: "Outfit", sans-serif;
   font-size: 23px;
   font-weight: 400;
   letter-spacing: -0.5px;
-  transition: color 0.2s ease;
+  transition: opacity 0.2s ease;
+}
+
+.footer-brand span {
+  color: #A4D3B4;
+  font-weight: 300;
 }
 
 .footer-brand:hover {
-  color: var(--green);
+  opacity: 0.85;
 }
 
 .footer-copyright {
@@ -553,6 +583,20 @@ input:focus-visible {
   color: #c1d1c5;
   white-space: nowrap;
 }
+
+.footer-credit a {
+  color: #c1d1c5;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-credit a:hover {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Back-to-top button */
 
 .back-to-top {
   justify-self: end;
@@ -592,7 +636,7 @@ input:focus-visible {
   transform: translateY(-2px);
 }
 
-/* ===== Large screens ===== */
+/* Large screens */
 
 @media (min-width: 1441px) {
   .hero {
@@ -601,7 +645,7 @@ input:focus-visible {
   }
 }
 
-/* ===== Laptop and tablet ===== */
+/* Laptop and tablet */
 
 @media (max-width: 1000px) {
   .hero {
@@ -623,8 +667,8 @@ input:focus-visible {
 
   .shortener-card {
     width: min(100%, 700px);
-    min-height: 250px;
-    padding: 32px 24px;
+    min-height: 220px;
+    padding: 28px 24px;
   }
 
   .features {
@@ -636,7 +680,7 @@ input:focus-visible {
   }
 }
 
-/* ===== Mobile ===== */
+/* Tablets and mobile */
 
 @media (max-width: 760px) {
   .hero {
@@ -645,13 +689,30 @@ input:focus-visible {
   }
 
   .wordmark {
-    font-size: 27px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     margin: 0 0 27px;
+    font-size: 27px;
   }
 
+  .wordmark-logo {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Keep hero text left and animation right */
+
   .hero-content-row {
+    display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(100px, 0.58fr);
+    align-items: center;
     gap: 8px;
+  }
+
+  .hero-copy {
+    min-width: 0;
+    text-align: left;
   }
 
   .hero h1 {
@@ -662,33 +723,79 @@ input:focus-visible {
   }
 
   .hero-description {
+    max-width: 480px;
     font-size: 12px;
     line-height: 1.65;
   }
 
   .hero-visual {
+    position: relative;
+    width: 100%;
+    min-width: 0;
     min-height: 220px;
   }
 
+  .chain-animation {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .chain-animation canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Main block retains its gradient */
+
   .shortener-card {
     width: 100%;
-    min-height: 240px;
-    margin-top: 20px;
-    padding: 30px 20px;
+    min-height: 220px;
+    margin: 42px auto 0;
+    padding: 28px 20px;
   }
+
+  .shortener-card::before {
+    inset: -8px;
+    border-radius: 23px;
+  }
+
+  .shortener-card form {
+    width: 100%;
+  }
+
+  .shortener-card form label {
+    font-size: 14px;
+  }
+
+  .input-row {
+    width: 100%;
+  }
+
+  .input-row input {
+    min-width: 0;
+  }
+
+  /* Feature cards */
 
   .features {
     padding: 26px 5% 55px;
   }
 
   .feature-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
     margin-top: 30px;
   }
 
   .feature-card {
+    min-width: 0;
     padding: 22px;
   }
+
+  /* Footer */
 
   .footer {
     grid-template-columns: 1fr auto;
@@ -701,39 +808,53 @@ input:focus-visible {
     justify-self: start;
   }
 
-  .back-to-top {
-    justify-self: end;
-  }
-
   .footer-copyright {
     grid-column: 1 / -1;
     grid-row: 2;
     max-width: 100%;
   }
+
+  .footer-credit {
+    white-space: normal;
+  }
 }
 
-/* ===== Small phones ===== */
+/* Small phones */
 
 @media (max-width: 430px) {
   .hero {
     width: calc(100% - 28px);
     padding-top: 14px;
+    padding-bottom: 24px;
   }
 
   .wordmark {
-    font-size: 25px;
+    gap: 7px;
     margin-bottom: 24px;
+    font-size: 25px;
   }
+
+  .wordmark-logo {
+    width: 29px;
+    height: 29px;
+  }
+
+  /* Text left, chain animation right */
 
   .hero-content-row {
     grid-template-columns: minmax(0, 1fr) 100px;
     gap: 5px;
   }
 
+  .hero-copy {
+    min-width: 0;
+  }
+
   .hero h1 {
     font-size: clamp(25px, 7.2vw, 30px);
     letter-spacing: -1.3px;
     line-height: 1.16;
+    margin-bottom: 12px;
   }
 
   .hero-description {
@@ -745,36 +866,55 @@ input:focus-visible {
     min-height: 175px;
   }
 
+  /* Main block stays below the hero */
+
   .shortener-card {
-    min-height: 230px;
-    margin-top: 18px;
+    width: 100%;
+    min-height: 210px;
+    margin-top: 38px;
     padding: 25px 15px;
-    border-radius: 16px;
+  }
+
+  .shortener-card::before {
+    inset: -6px;
+    border-radius: 19px;
   }
 
   .shortener-card form label {
     font-size: 13px;
+    margin-bottom: 12px;
   }
 
+  /* Stack the button below the input */
+
   .input-row {
+    display: flex;
     flex-wrap: wrap;
+    gap: 6px;
     padding: 8px;
   }
 
+  .input-icon {
+    margin-left: 4px;
+  }
+
   .input-row input {
-    width: calc(100% - 45px);
+    width: calc(100% - 40px);
+    min-width: 0;
     flex: 1;
+    padding: 10px 0;
     font-size: 12px;
   }
 
   .input-row button {
     width: 100%;
+    justify-content: center;
     padding: 12px;
   }
 
-  .card-footer {
-    gap: 9px 14px;
-    font-size: 10px;
+  .error-message {
+    font-size: 11px;
+    overflow-wrap: anywhere;
   }
 
   .result-panel {
@@ -783,21 +923,56 @@ input:focus-visible {
     gap: 10px;
   }
 
-  .qr-panel svg {
-    width: 76px;
-    height: 76px;
+  .result-copy {
+    min-width: 0;
   }
 
   .result-copy > a {
     font-size: 12px;
   }
 
-  .features {
-    padding-top: 22px;
+  .qr-panel {
+    padding: 7px;
   }
 
+  .qr-panel svg {
+    width: 76px;
+    height: 76px;
+  }
+
+  .card-footer {
+    gap: 9px 14px;
+    font-size: 10px;
+  }
+
+  /* Feature cards */
+
+  .features {
+    padding: 22px 18px 45px;
+  }
+
+  .feature-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 13px;
+    margin-top: 25px;
+  }
+
+  .feature-card {
+    padding: 20px;
+  }
+
+  .features-heading h2 {
+    letter-spacing: -1px;
+  }
+
+  .features-heading p {
+    font-size: 12px;
+  }
+
+  /* Compact footer */
+
   .footer {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     justify-items: center;
     gap: 13px;
     padding: 25px 16px;
@@ -814,101 +989,72 @@ input:focus-visible {
     grid-row: auto;
     font-size: 10px;
   }
+
+  .footer-credit {
+    white-space: normal;
+    text-align: center;
+  }
 }
 
-.feature-card-heading {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 14px;
+/* Very narrow phones */
+
+@media (max-width: 350px) {
+  .hero {
+    width: calc(100% - 24px);
+  }
+
+  .hero-content-row {
+    grid-template-columns: minmax(0, 1fr) 78px;
+    gap: 4px;
+  }
+
+  .hero h1 {
+    font-size: 24px;
+    letter-spacing: -1.1px;
+  }
+
+  .hero-description {
+    font-size: 10px;
+  }
+
+  .hero-visual {
+    min-height: 145px;
+  }
+
+  .shortener-card {
+    padding: 22px 12px;
+  }
+
+  .shortener-card::before {
+    inset: -5px;
+    border-radius: 17px;
+  }
+
+  .shortener-card form label {
+    font-size: 12px;
+  }
+
+  .input-row input {
+    font-size: 11px;
+  }
+
+  .card-footer {
+    column-gap: 10px;
+  }
 }
 
-.feature-card-heading .feature-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  padding: 0;
-  background: none;
-  border: none;
-  box-shadow: none;
-}
+/* Respect reduced-motion preferences */
 
-.feature-card-heading h3 {
-  margin: 0;
-}
-/* ===== Feature cards: light background variant ===== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 
-.feature-card {
-  padding: 25px;
-  border: 1px solid rgba(164, 211, 180, 0.4);
-  background: var(--cream);
-  border-radius: 14px;
-  color: var(--deep);
-
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.feature-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--green);
-  background: var(--cream);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
-}
-
-/* Icon and heading stay side by side */
-
-.feature-card-heading {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 14px;
-}
-
-.feature-card-heading .feature-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-
-  width: auto;
-  height: auto;
-  padding: 0;
-
-  color: var(--deep);
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-}
-
-.feature-card-heading h3 {
-  margin: 0;
-  color: var(--deep);
-  font: 700 15px "Manrope", sans-serif;
-}
-
-/* Description */
-
-.feature-card p {
-  margin: 0;
-  color: #435b4d;
-  font-size: 12px;
-  line-height: 1.8;
-}
-
-/* Keep the existing three-column desktop and one-column mobile layout */
-.footer-credit a {
-  color: #c1d1c5;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.footer-credit a:hover {
-  color: var(--green);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
