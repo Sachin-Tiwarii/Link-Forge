@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link2, ArrowUpRight, Copy, Check, Zap } from "lucide-react";
 import { QRCodeSVG } from "qrcode.react";
@@ -33,7 +34,9 @@ export default function App() {
     }
 
     if (!API_URL) {
-      setError("Backend URL is not configured. Check your environment variables.");
+      setError(
+        "Backend URL is not configured. Check your environment variables."
+      );
       return;
     }
 
@@ -82,7 +85,10 @@ export default function App() {
       <main>
         <section className="hero" id="home">
           <a className="wordmark" href="#home">
-            Link<span>Forge</span>
+            <img src="/logo.png" alt="LinkForge logo" className="wordmark-logo" />
+            <span className="wordmark-text">
+              Link<span>Forge</span>
+            </span>
           </a>
 
           <div className="hero-content-row">
@@ -227,10 +233,9 @@ export default function App() {
       </main>
 
       <footer className="footer">
-        <a className="footer-brand" href="#home">
-          LinkForge
+        <a href="#home" className="footer-brand">
+          Link<span>Forge</span>
         </a>
-
         <p className="footer-copyright">
           © {new Date().getFullYear()} LinkForge. Built to connect.
           <span className="footer-credit">
@@ -240,7 +245,7 @@ export default function App() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Sachin 
+              Sachin
             </a>
             .
           </span>
